@@ -73,6 +73,12 @@ Route::get('/form', function () {
 });
 
 Route::post('/user', function () {
+    request()->validate([
+        'name' => ['required'],
+        'company' => ['required'],
+        'role' => ['required', 'in:User,Admin,Super'],
+    ]);
+
     return redirect()->back();
 });
 

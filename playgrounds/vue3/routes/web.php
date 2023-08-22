@@ -73,13 +73,7 @@ Route::get('/form', function () {
 });
 
 Route::post('/user', function () {
-    return inertia('User', [
-        'user' => request()->validate([
-            'name' => ['required'],
-            'company' => ['required'],
-            'role' => ['required', 'in:User,Admin,Super'],
-        ])
-    ]);
+    return redirect()->back();
 });
 
 Route::get('/login', function () {
